@@ -1,0 +1,163 @@
+body {
+  background: linear-gradient(0deg, #61067A 0%, #FA0DF1 100%);
+  font-family: georgia;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  /* min-height: 1030px; */
+}
+
+#container {
+  background-color: #121212;
+  box-shadow: 4px 4px 8px #212121;
+  width: 1200px;
+  min-height: 1000px;
+  justify-content: center;
+  padding-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 17.5px;
+}
+
+#score {
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+  font: arial;
+  font-size: 20pt;
+}
+
+.category-column {
+  background-color: #121212;
+  display: inline-table;
+  word-wrap: break-word;
+  justify-content: center;
+  width: 16.66%;
+  /* min-height: 80%; */
+}
+
+.clue-container {
+  background-color: black;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bubble {
+  border-radius: 10px;
+  background-color: blue;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+}
+
+.category-bubble {
+  border-radius: 5px;
+  background-color: blue;
+  text-align: center;
+  word-wrap: break-word;
+  hyphens: manual;
+  font-size: 16pt;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 20px 0;
+  width: auto;
+  height: 80px;
+}
+
+
+
+.clue-bubble {
+  border-radius: 5px;
+  background-color: blue;
+  font: arial;
+  font-weight: bolder;
+  font-size: 30pt;
+  color: gold;
+  text-align: center;
+  width: auto;
+  height: 80px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 30px;
+}
+
+.bubble#menu-bubble {
+  display: block;
+  width: 700px;
+  height: 500px;
+  padding-top: 40px;
+}
+
+.bubble#selected-clue-bubble {
+  display: block;
+  width: 700px;
+  height: 500px;
+  padding: 60px;
+}
+
+.bubble#game-over {
+  display: block;
+  font-size: 40pt;
+  padding: 70px 0;
+  width: 700px;
+  height: 500px;
+  padding: 60px;
+}
+
+.bubble#game-over ol{
+  font-size: 20pt;
+}
+
+.question {
+  font-size: 30pt;
+  padding: 70px 0;
+}
+
+.answer {
+  font-size: 14pt;
+}
+
+#logo {
+  background-color: #6B6B6B;
+  width: 395px;
+  height: 116px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  padding: 20px;
+  border-color: gold;
+  border-width: 5px;
+  border-style: solid;
+  border-spacing: 2px;
+  border-radius: 20px;
+}
+
+.bubble-text {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.bubble-text#welcome {
+  font-size: 40pt;
+}
+
+.answer-status {
+  font-size: 24pt;
+  color: gold;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
