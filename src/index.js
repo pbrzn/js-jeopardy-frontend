@@ -90,7 +90,7 @@ function updateGame() {
     if (Clue.answeredClues().length === 30){
       container.appendChild(answerStatus)
       Game.fetchAll();
-      gameOver(Game.highScores());
+      gameOver();
     } else {
       container.appendChild(answerStatus);
       renderBoard(game);
@@ -131,7 +131,6 @@ function persistData(category) {
 }
 
 function gameOver() {
-  Game.fetchAll();
   const gameOverDiv = document.createElement("div");
   gameOverDiv.className = "bubble";
   gameOverDiv.id = "game-over";
@@ -147,6 +146,6 @@ function gameOver() {
   p4.innerHTML = "HERE ARE THE PREVIOUS HIGH SCORES";
   gameOverDiv.appendChild(p4);
 
-  gameOverDiv.appendChild(game.renderHighScores());
+  gameOverDiv.appendChild(Game.renderHighScores());
 
 }
