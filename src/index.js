@@ -18,7 +18,7 @@ function startGame() {
       "Accept": "application/json"
     },
   }
-  fetch("http://localhost:3000/games", configObject)
+  fetch("https://quiet-temple-92211.herokuapp.com/games", configObject)
   .then(resp => resp.json())
   .then(function(json) {
     game = new Game(json);
@@ -34,7 +34,7 @@ function renderBoard(gameObj) {
     if (category) {
       persistData(category)
     } else {
-      fetch(`http://localhost:3000/categories/${categories[i].id}`)
+      fetch(`https://quiet-temple-92211.herokuapp.com/categories/${categories[i].id}`)
       .then(resp => resp.json())
       .then(function(json) {
         let category = new Category(json);
@@ -47,7 +47,7 @@ function renderBoard(gameObj) {
 
 function renderClue(clueId) {
   if (!Clue.all.find(c => c.id === clueId)) {
-    fetch(`http://localhost:3000/clues/${clueId}`)
+    fetch(`https://quiet-temple-92211.herokuapp.com/clues/${clueId}`)
     .then(resp => resp.json())
     .then(function(json) {
       clueToRender = new Clue(json);
@@ -73,7 +73,7 @@ function updateGame() {
     body: JSON.stringify(updateData)
   }
 
-  fetch(`http://localhost:3000/games/${game.id}`, configObj)
+  fetch(`https://quiet-temple-92211.herokuapp.com/games/${game.id}`, configObj)
   .then(resp => resp.json())
   .then(function(json) {
     clueToRender.answered = true;
@@ -109,8 +109,7 @@ function persistData(category) {
   categoryColumn.appendChild(category.renderCategoryBubble());
 
   const clues = category.clues
-  for (let i = 0; i < clues.length; i++) {
-    const clue = clues[i]
+  clues.map(clue => {
     let clueBubble = document.createElement("div");
     clueBubble.id = clue.id;
     clueBubble.className = "clue-bubble";
@@ -128,7 +127,7 @@ function persistData(category) {
         renderClue(clueBubble.id);
       }
     })
-  }
+  })
 }
 
 function gameOver() {

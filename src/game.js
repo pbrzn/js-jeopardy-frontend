@@ -9,7 +9,7 @@ class Game {
   static all = [];
 
   static fetchAll() {
-    return fetch("http://localhost:3000/games")
+    return fetch("https://quiet-temple-92211.herokuapp.com/games")
       .then(resp => resp.json())
       .then(json => {
         json.forEach(game => this.all.push(game));
