@@ -103,7 +103,6 @@ function updateGame() {
     discardState();
     if (Clue.answeredClues().length === 30){
       container.appendChild(answerStatus)
-      Game.fetchAll();
       gameOver();
     } else {
       container.appendChild(answerStatus);

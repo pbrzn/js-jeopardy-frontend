@@ -4,6 +4,7 @@ class Game {
     this.categories = gameObj.categories;
     this.clues = gameObj.clues;
     this.score = gameObj.score;
+    Game.fetchAll();
   }
 
   static all = [];
