@@ -146,6 +146,6 @@ function gameOver() {
   p4.innerHTML = "HERE ARE THE PREVIOUS HIGH SCORES";
   gameOverDiv.appendChild(p4);
 
-  gameOverDiv.appendChild(Game.renderHighScores());
+  gameOverDiv.appendChild(game.renderHighScores());
 
 }
