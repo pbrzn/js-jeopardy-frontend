@@ -11,6 +11,18 @@ document.addEventListener("DOMContentLoaded", () => {
 function startGame() {
   discardState()
 
+  const loading = document.createElement("div");
+  loading.className = "spinner";
+
+  const bounce1 = document.createElement("div");
+  const bounce2 = document.createElement("div");
+  const bounce3 = document.createElement("div");
+  const arr = [bounce1, bounce2, bounce3];
+  arr.map((bounce, idx) => {
+    bounce.className = `bounce${idx + 1}`;
+    loading.appendChild(bounce);
+  });
+  container.appendChild(loading);
   const configObject = {
     method: "POST",
     headers: {
@@ -18,10 +30,12 @@ function startGame() {
       "Accept": "application/json"
     },
   }
+
   fetch("https://quiet-temple-92211.herokuapp.com/games", configObject)
   .then(resp => resp.json())
   .then(function(json) {
     game = new Game(json);
+    discardState();
     renderBoard(game);
   })
 }
