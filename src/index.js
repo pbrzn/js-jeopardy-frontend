@@ -8,9 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   start.addEventListener("click", startGame, false)
 })
 
-function startGame() {
-  discardState()
-
+function loading() {
   const loading = document.createElement("div");
   loading.className = "spinner";
 
@@ -23,6 +21,12 @@ function startGame() {
     loading.appendChild(bounce);
   });
   container.appendChild(loading);
+}
+
+function startGame() {
+  discardState();
+  loading();
+
   const configObject = {
     method: "POST",
     headers: {
@@ -60,6 +64,7 @@ function renderBoard(gameObj) {
 
 
 function renderClue(clueId) {
+  loading();
   if (!Clue.all.find(c => c.id === clueId)) {
     fetch(`https://quiet-temple-92211.herokuapp.com/clues/${clueId}`)
     .then(resp => resp.json())
@@ -74,6 +79,7 @@ function renderClue(clueId) {
 }
 
 function updateGame() {
+
   let answerStatus = document.createElement("div");
   answerStatus.className = "answer-status"
   const updateData = { score: game.score }
@@ -86,7 +92,7 @@ function updateGame() {
     },
     body: JSON.stringify(updateData)
   }
-
+  loading();
   fetch(`https://quiet-temple-92211.herokuapp.com/games/${game.id}`, configObj)
   .then(resp => resp.json())
   .then(function(json) {
